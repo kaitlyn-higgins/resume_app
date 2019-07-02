@@ -39,3 +39,9 @@ education = Education.create({student_id: 2, start_date: "8/27/1936", end_date: 
 education = Education.create({student_id: 3, start_date: "8/13/1198", end_date: "6/3/1202", degree: "Bachelor of Science in Agriculture", university: "The Shire", details: "I majored in gardening with a minor in taters."})
 education = Education.create({student_id: 4, start_date: "8/20/1310", end_date: "6/20/1314", degree: "Bachelor of Arts in Cunning", university: "University of California, Berkley", details: "I majored in finance with a minor in being a terrible father."})
 education = Education.create({student_id: 5, start_date: "8/25/1980", end_date: "6/13/1984", degree: "Bachelor of Arts in English", university: "San Diego State University", details: "I majored in English with a minor in survival."})
+
+capstone = Capstone.create({student_id: 1, name: "Chicken Soup for Bob's Soul", description: "It's a collection of inspiring and heart lifting essays for people named Bob", url: "chickensoupforbob.com", screenshot: "chickensoupforbob.jpeg"})
+capstone = Capstone.create({student_id: 2, name: "PA Fetch", description: "It's an app for ordering food when you can't leave the set.", url: "pafetch.com", screenshot: "pafetch.jpeg"})
+capstone = Capstone.create({student_id: 3, name: "GollumTracker", description: "It's an app that allows you to keep tabs on that sneaky guy.", url: "gollumtracker.com", screenshot: "gollumtracker.jpeg"})
+capstone = Capstone.create({student_id: 4, name: "Ye Olde Mint", description: "It's an app that lets you track who you owe money to.", url: "yeoldemint.com", screenshot: "yeoldemint.jpeg"})
+capstone = Capstone.create({student_id: 5, name: "SkyNet SchmyScmet", description: "It's an app that hacks skynet and reprograms terminators to do your bidding.", url: "illbeback.com", screenshot: "illbeback.jpeg"})
