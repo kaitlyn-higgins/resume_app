@@ -19,8 +19,11 @@ class Api::EducationsController < ApplicationController
       student_id: params[:student_id]
       )
 
-    @education.save
-    redirect_to "/educations/#{@education.id}"
+    if @education.save
+      render 'show.json.jbuilder'
+    else
+      render json:{errors: @education.errors.full_messages}, status: :unprocessable_entity
+    end
   end
 
   def update
@@ -32,13 +35,16 @@ class Api::EducationsController < ApplicationController
     @education.university = params[:university]
     @education.details = params[:details]
 
-    @education.save
-    redirect_to "/educations/#{@education.id}"
+    if @education.save
+      render 'show.json.jbuilder'
+    else
+      render json:{errors: @education.errors.full_messages}, status: :unprocessable_entity
+    end
   end
 
   def destroy
     @education = Education.find(params[:id])
     @education.destroy
-    redirect_to "/educations"
+    render json: {message: "Eductation deleted"}
   end
 end
