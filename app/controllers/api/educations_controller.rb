@@ -1,4 +1,6 @@
 class Api::EducationsController < ApplicationController
+  before_action :authenticate_user, only: [:create, :update, :destroy]
+
   def index
     @educations = Education.all
     render 'index.json.jbuilder'

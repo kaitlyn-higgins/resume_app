@@ -1,4 +1,5 @@
 class Api::ExperiencesController < ApplicationController
+  before_action :authenticate_user, only: [:create, :update, :destroy]
 
   def index
     @experiences = Experience.all

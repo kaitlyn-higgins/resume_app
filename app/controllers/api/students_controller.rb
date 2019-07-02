@@ -1,5 +1,7 @@
 class Api::StudentsController < ApplicationController
 
+  before_action :authenticate_user, only: [:create, :update, :destroy]
+
   def index
     @students = Student.all
     render 'index.json.jbuilder'
@@ -22,7 +24,9 @@ class Api::StudentsController < ApplicationController
     website: params[:website],
     resume: params[:resume],
     github: params[:github],
-    photo: params[:photo]
+    photo: params[:photo],
+    password: params[:password],
+    password_confirmation: params[:password_confirmation],
     )
 
     if @student.save
