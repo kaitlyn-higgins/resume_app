@@ -1,0 +1,14 @@
+json.id student.id
+json.first_name student.first_name
+json.last_name student.last_name
+json.email student.email
+json.phone_number student.phone_number
+json.bio student.bio
+json.linked_in student.linked_in
+json.twitter student.twitter
+json.website student.website
+json.resume student.resume
+json.github student.github
+json.photo student.photo
+json.created_at student.created_at
+json.updated_at student.updated_at
