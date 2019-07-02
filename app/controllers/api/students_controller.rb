@@ -53,4 +53,10 @@ class Api::StudentsController < ApplicationController
     end
   end
 
+  def destroy
+    student = Student.find(params[:id])
+    student.destroy
+    render json: {message: "account successfully destroyed"}
+  end
+
 end
