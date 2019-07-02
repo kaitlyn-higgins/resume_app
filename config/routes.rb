@@ -3,11 +3,14 @@ Rails.application.routes.draw do
 
   namespace :api do
 
+    post "/sessions" => "sessions#create"
+
     get "/capstones" => "capstones#index"
     get "/capstones/:id" => "capstones#show"
     post "/capstones" => "capstones#create"
     patch "/capstones/:id" => "capstones#update"
     delete "/capstones/:id" => "capstones#destroy"
+
 
 
     get "/educations" => "educations#index"

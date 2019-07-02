@@ -1,4 +1,5 @@
 class Api::CapstonesController < ApplicationController
+  before_action :authenticate_user, only: [:create, :update, :destroy]
 
   def index
     @capstones = Capstone.all
