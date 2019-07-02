@@ -1,4 +1,5 @@
 class Api::StudentsController < ApplicationController
+  before_action :authenticate_user
 
   def index
     @students = Student.all
@@ -22,7 +23,9 @@ class Api::StudentsController < ApplicationController
     website: params[:website],
     resume: params[:resume],
     github: params[:github],
-    photo: params[:photo]
+    photo: params[:photo],
+    password: params[:password],
+    password_confirmation: params[:password_confirmation],
     )
 
     if @student.save
