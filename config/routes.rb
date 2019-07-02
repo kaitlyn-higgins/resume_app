@@ -4,6 +4,15 @@ Rails.application.routes.draw do
 
 
   namespace :api do
+
+
+    get "/educations" => "educations#index"
+    get "/educations/:id" => "educations#show"
+    post "/educations" => "educations#create"
+    patch "/educations/:id" => "educations#update"
+    delete "/educations/:id" => "educations#destroy"
+
+
     #experiences actions
     get "/experiences" => "experiences#index"
     post "/experiences" => "experiences#create"
@@ -19,6 +28,7 @@ Rails.application.routes.draw do
     delete "/skills/:id" => "skills#destroy"
 
     #students actions
+
     get "/students" => "students#index"
     get "/students/:id" => "students#show"
     post "/students" => "students#create"
@@ -26,6 +36,5 @@ Rails.application.routes.draw do
     delete "/students/:id" => "students#destroy"
 
   end
-
 
 end
