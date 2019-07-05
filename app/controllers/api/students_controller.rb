@@ -13,18 +13,24 @@ class Api::StudentsController < ApplicationController
   end
 
   def update
-    @student = Student.find(params[:id])
-    @student.first_name = params[:first_name] || @student.first_name
-    @student.last_name = params[:last_name] || @student.last_name
-    @student.email = params[:email] || @student.email
-    @student.phone_number = params[:phone_number] || @student.phone_number
-    @student.bio = params[:bio] || @student.bio
-    @student.linked_in = params[:linked_in] || @student.linked_in
-    @student.twitter = params[:twitter] || @student.twitter
-    @student.website = params[:website] || @student.website
-    @student.resume = params[:resume] || @student.resume
-    @student.github = params[:github] || @student.github
-    @student.photo = params[:photo] || @student.photo
+
+    if current_user
+      @student = Student.find(params[:id])
+      @student.first_name = params[:first_name] || @student.first_name
+      @student.last_name = params[:last_name] || @student.last_name
+      @student.email = params[:email] || @student.email
+      @student.phone_number = params[:phone_number] || @student.phone_number
+      @student.bio = params[:bio] || @student.bio
+      @student.linked_in = params[:linked_in] || @student.linked_in
+      @student.twitter = params[:twitter] || @student.twitter
+      @student.website = params[:website] || @student.website
+      @student.resume = params[:resume] || @student.resume
+      @student.github = params[:github] || @student.github
+      @student.photo = params[:photo] || @student.photo
+    else
+      render json: []
+    end
+
 
     if @student.save
       render 'show.json.jbuilder'
