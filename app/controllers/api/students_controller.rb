@@ -13,8 +13,7 @@ class Api::StudentsController < ApplicationController
   end
 
   def update
-
-    if current_user
+    if current_user.id == params[:id].to_i
       @student = Student.find(params[:id])
       @student.first_name = params[:first_name] || @student.first_name
       @student.last_name = params[:last_name] || @student.last_name
@@ -27,16 +26,15 @@ class Api::StudentsController < ApplicationController
       @student.resume = params[:resume] || @student.resume
       @student.github = params[:github] || @student.github
       @student.photo = params[:photo] || @student.photo
+      if @student.save
+        render 'show.json.jbuilder'
+      else 
+        render json: {errors: @student.errors.full_messages}, status: :unprocessable_entity
+      end
     else
-      render json: []
+      render json: {errors: "Self-destruct in 5..."}
     end
 
-
-    if @student.save
-      render 'show.json.jbuilder'
-    else 
-      render json: {errors: @student.errors.full_messages}, status: :unprocessable_entity
-    end
   end
 
   def destroy
