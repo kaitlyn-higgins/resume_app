@@ -4,3 +4,4 @@ json.degree education.degree
 json.university education.university
 json.details education.details
 json.student_id education.student_id
+json.id education.id
